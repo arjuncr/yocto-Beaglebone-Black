@@ -1,8 +1,0 @@
-
-### Shell environment set up for building beaglebone black. ###
-
-You can now run 'bitbake <target>'
-
-Common targets are:
-    core-image-minimal
-
