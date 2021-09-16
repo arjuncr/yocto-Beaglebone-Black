@@ -30,3 +30,35 @@ meta-poky
 meta-yocto-bsp       = "master:71dfb3b237391ccc840ca5e0c0fa9e38ed79be5c"
 
 ```
+
+
+## Create SD card Partition to boot the board       
+Create the partition in the SD card and copy the generated file in those partitions.     
+
+You can use GParted to create the partition.      
+
+Create the first partition with the following details.      
+Name of the partition - BOOT      
+Size - 150 MB.      
+Flag - Set the boot flag     
+Type - FAT32       
+Create 2nd partition with the below details.      
+Name of the partition - ROOT.      
+Size - greater than 1024 MB or remaining space of SD card.     
+Type- ext4     
+
+## Copy generated image in SD card partition    
+Make sure your SD card is mounted on the host pc and you can access both SD card partitions.      
+
+# copy files from build/tmp/deploy/images/beaglebone-yocto/ to SD card boot and root partition.      
+cp MLO-beaglebone-yocto /media/tutorialadda/BOOT/     
+cp u-boot.img /media/tutorialadda/BOOT/      
+sudo tar -xvf core-image-minimal-beaglebone-yocto.tar.bz2 /media/tutorialadda/ROOT/     
+
+## Booting     
+Follow the below steps and boot the board with your Custom Linux image.     
+  
+Insert SD card into beaglebone black card slot.     
+Connect the serial cable to monitor bootup logs and login to beaglebone black.    
+Press the S2 button while connecting power to beagle bone.    
+You will get the bootup log on the serial console.    
