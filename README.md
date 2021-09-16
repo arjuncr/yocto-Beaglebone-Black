@@ -2,7 +2,7 @@
 
 Build Steps  
 
-
+git clone https://github.com/arjuncr/yocto-Beaglebone-Black.git   
 
 . oe-init-build-env  
 
